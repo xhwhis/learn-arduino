@@ -100,7 +100,7 @@ void loop() {
                 lcd.print("Forward");
                 Keyboard.press(KEY_LEFT_CTRL);
                 Keyboard.press(KEY_LEFT_ALT);
-                Keyboard.press('P');
+                Keyboard.press('p');
                 Keyboard.releaseAll();
                 delay(GES_QUIT_TIME);
             } break;
