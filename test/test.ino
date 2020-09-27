@@ -38,15 +38,15 @@ void loop() {
                     lcd.print("Backward");
                     delay(GES_QUIT_TIME);
                 } else {
-                    lcd.print("Right");
+                    lcd.print("-->");
                     Keyboard.press(KEY_LEFT_CTRL);
                     Keyboard.press(KEY_LEFT_ALT);
                     Keyboard.press(KEY_RIGHT_ARROW);
                     Keyboard.releaseAll();
-                }
             } break;
             case GES_LEFT_FLAG: {
                 delay(GES_ENTRY_TIME);
+                }
                 paj7620ReadReg(0x43, 1, &data);
                 if (data == GES_FORWARD_FLAG) {
                     lcd.print("Forward");
@@ -55,7 +55,7 @@ void loop() {
                     lcd.print("Backward");
                     delay(GES_QUIT_TIME);
                 } else {
-                    lcd.print("Left");
+                    lcd.print("<--");
                     Keyboard.press(KEY_LEFT_CTRL);
                     Keyboard.press(KEY_LEFT_ALT);
                     Keyboard.press(KEY_LEFT_ARROW);
@@ -74,6 +74,8 @@ void loop() {
                 } else {
                     lcd.print("Up");
                     Keyboard.press(KEY_UP_ARROW);
+                    Keyboard.press(KEY_UP_ARROW);
+                    Keyboard.press(KEY_UP_ARROW);
                     Keyboard.releaseAll();
                 }
             } break;
@@ -89,10 +91,17 @@ void loop() {
                 } else {
                     lcd.print("Down");
                     Keyboard.press(KEY_DOWN_ARROW);
+                    Keyboard.press(KEY_DOWN_ARROW);
+                    Keyboard.press(KEY_DOWN_ARROW);
                     Keyboard.releaseAll();
                 }
             } break;
+            case GES_FORWARD_FLAG: {
                 lcd.print("Forward");
+                Keyboard.press(KEY_LEFT_CTRL);
+                Keyboard.press(KEY_LEFT_ALT);
+                Keyboard.press('P');
+                Keyboard.releaseAll();
                 delay(GES_QUIT_TIME);
             } break;
             case GES_BACKWARD_FLAG: {
@@ -100,10 +109,9 @@ void loop() {
                 delay(GES_QUIT_TIME);
             } break;
             case GES_CLOCKWISE_FLAG: {
-            case GES_FORWARD_FLAG: {
                 lcd.print("Clockwise");
-                Keyboard.press(KEY_F5);
-                Keyboard.releaseAll();
+                //Keyboard.press(KEY_F5);
+                //Keyboard.releaseAll();
             } break;
             case GES_COUNT_CLOCKWISE_FLAG: {
                 lcd.print("anti-clockwise");
